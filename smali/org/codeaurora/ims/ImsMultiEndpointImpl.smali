@@ -200,9 +200,9 @@
 .end method
 
 .method private notifyViceInfo()V
-    .locals 4
+    .locals 3
 
-    .line 98
+    .line 95
     iget-object v0, p0, Lorg/codeaurora/ims/ImsMultiEndpointImpl;->mImsViceParser:Lorg/codeaurora/ims/parser/ImsViceParser;
 
     iget-boolean v1, p0, Lorg/codeaurora/ims/ImsMultiEndpointImpl;->mIsVideoSupported:Z
@@ -213,64 +213,33 @@
 
     move-result-object v0
 
-    .line 102
+    .line 98
     .local v0, "dialogIds":Ljava/util/List;, "Ljava/util/List<Landroid/telephony/ims/ImsExternalCallState;>;"
-    iget-object v1, p0, Lorg/codeaurora/ims/ImsMultiEndpointImpl;->mContext:Landroid/content/Context;
-
-    .line 103
-    invoke-static {}, Landroid/telephony/SubscriptionManager;->getDefaultVoicePhoneId()I
-
-    move-result v2
-
-    invoke-static {v1, v2}, Lcom/android/ims/ImsManager;->getInstance(Landroid/content/Context;I)Lcom/android/ims/ImsManager;
-
-    iget-object v1, p0, Lorg/codeaurora/ims/ImsMultiEndpointImpl;->mContext:Landroid/content/Context;
-
-    .line 104
-    invoke-static {v1}, Lcom/android/ims/ImsManager;->isVceEnabledByPlatform(Landroid/content/Context;)Z
-
-    move-result v1
-
-    .line 102
-    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v1
-
-    .line 105
-    .local v1, "isVceAvailable":Ljava/lang/Boolean;
-    invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    .line 107
     :try_start_0
-    const-string v2, "ImsMultiEndpointImpl"
+    const-string v1, "ImsMultiEndpointImpl"
 
-    const-string v3, "Calling onImsExternalCallStateUpdate"
+    const-string v2, "Calling onImsExternalCallStateUpdate"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 108
+    .line 99
     invoke-virtual {p0, v0}, Lorg/codeaurora/ims/ImsMultiEndpointImpl;->onImsExternalCallStateUpdate(Ljava/util/List;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 111
+    .line 102
     goto :goto_0
 
-    .line 109
+    .line 100
     :catch_0
-    move-exception v2
+    move-exception v1
 
-    .line 110
-    .local v2, "e":Ljava/lang/Exception;
-    invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
+    .line 101
+    .local v1, "e":Ljava/lang/Exception;
+    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 114
-    .end local v2    # "e":Ljava/lang/Exception;
-    :cond_0
+    .line 103
+    .end local v1    # "e":Ljava/lang/Exception;
     :goto_0
     return-void
 .end method
