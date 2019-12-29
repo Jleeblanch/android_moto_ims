@@ -210,9 +210,6 @@
     .locals 0
     .param p0, "x0"    # Lorg/codeaurora/ims/ImsConfigImpl;
 
-    .line 35
-    invoke-direct {p0}, Lorg/codeaurora/ims/ImsConfigImpl;->syncWfcMDN()V
-
     return-void
 .end method
 
@@ -1158,9 +1155,6 @@
     iget v6, v2, Lorg/codeaurora/ims/ImsConfigImpl$FeatureAccessWrapper;->value:I
 
     if-ne v5, v6, :cond_4
-
-    .line 222
-    invoke-direct {p0}, Lorg/codeaurora/ims/ImsConfigImpl;->syncWfcMDN()V
 
     .line 227
     .end local v2    # "f":Lorg/codeaurora/ims/ImsConfigImpl$FeatureAccessWrapper;
